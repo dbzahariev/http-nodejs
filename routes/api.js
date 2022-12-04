@@ -32,6 +32,7 @@ router.get("/users", (req, res) => {
 });
 
 router.post("/save", cors(), (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const data = req.body;
 
   const newGame = new Games(data);
@@ -49,6 +50,7 @@ router.post("/save", cors(), (req, res) => {
 });
 
 router.post("/update", cors(), (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const data = req.body || {};
   let id = req?.query?.id;
 
