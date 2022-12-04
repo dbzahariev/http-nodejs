@@ -6,7 +6,12 @@ const path = require("path");
 const axios = require('axios');
 const { clearInterval, setInterval } = require("timers");
 
+var cors = require('cors')
+
 const app = express();
+app.use(cors({
+  origin: '*'
+}));
 const PORT = process.env.PORT || 8080; // Step 1
 
 const routes = require("./routes/api");
