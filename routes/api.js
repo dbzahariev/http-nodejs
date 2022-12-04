@@ -19,7 +19,8 @@ router.get("/", cors(), (req, res) => {
     });
 });
 
-router.get("/users", cors(), (req, res) => {
+router.get("/users", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   Games.find({})
     .then((data) => {
       return res.json(data);
