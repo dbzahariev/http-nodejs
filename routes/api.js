@@ -4,9 +4,11 @@ const router = express.Router();
 
 const Games = require("../models/games");
 
+const cors = require('cors')
+
 // Routes
 
-router.get("/", (req, res) => {
+router.get("/", cors(), (req, res) => {
   Games.find({})
     .then((data) => {
       return res.json(data);
@@ -17,7 +19,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/users", (req, res) => {
+router.get("/users", cors(), (req, res) => {
   Games.find({})
     .then((data) => {
       return res.json(data);
@@ -28,7 +30,7 @@ router.get("/users", (req, res) => {
     });
 });
 
-router.post("/save", (req, res) => {
+router.post("/save", cors(), (req, res) => {
   const data = req.body;
 
   const newGame = new Games(data);
@@ -45,7 +47,7 @@ router.post("/save", (req, res) => {
   });
 });
 
-router.post("/update", (req, res) => {
+router.post("/update", cors(), (req, res) => {
   const data = req.body || {};
   let id = req?.query?.id;
 
